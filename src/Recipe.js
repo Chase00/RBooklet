@@ -11,33 +11,33 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const Recipe = ({ title, calories, image, key, ingredients }) => {
     return (
         <div>
-        <Card>
-            <CardContent>
-                <Typography variant="h5" gutterBottom>{title}</Typography>
-                <Typography variant="subtitle1" gutterBottom>({calories} Calories)</Typography>
-                <img src={image} alt={key} />
+            <Card>
+                <CardContent>
+                    <Typography variant="h5" gutterBottom>{title}</Typography>
+                    <Typography variant="subtitle1" gutterBottom>({calories} Calories)</Typography>
+                    <img src={image} alt={key} />
 
-                <Accordion className="accordion">
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                    >
-                        <Typography variant="subtitle1">Ingredients</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            <ul>
-                                {ingredients.map(ingredient => (
-                                    <Typography variant="subtitle1" gutterBottom>{ingredient.text}</Typography>
-                                ))}
-                            </ul>
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
-            </CardContent>
-        </Card>
-        <br />
+                    <Accordion className="accordion">
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography variant="subtitle1">Ingredients</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                <ul>
+                                    {ingredients.map(ingredient => (
+                                        <Typography variant="subtitle1" gutterBottom>{ingredient.text}</Typography>
+                                    ))}
+                                </ul>
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                </CardContent>
+            </Card>
+            <br />
         </div>
     );
 }

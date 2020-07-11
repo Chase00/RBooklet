@@ -5,20 +5,19 @@ body {
     padding-left: 30%;
     padding-right: 30%;
 }
- 
+
 @media only screen and (max-width: 800px) {
     body {
         padding-left: 10%;
         padding-right: 10%;
     }
- }
+}
 
- .header {
+.header {
     background: -webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
- }
+}
 
 .accordion {
     margin: 1em auto;

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Button } from '@material-ui/core';
@@ -18,22 +18,20 @@ const App = () => {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-   getRecipes();
+    getRecipes();
   }, [query]);
 
   const getRecipes = async () => {
     const response = await
       fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
 
-      const data = await response.json();
-      setRecipes(data.hits);
-      console.log(data.hits)
-      setSearch("")
+    const data = await response.json();
+    setRecipes(data.hits);
+    setSearch("")
   }
 
   const updateSearch = (e) => {
     setSearch(e.target.value)
-    console.log(search)
   }
 
   const getSearch = (e) => {
@@ -50,41 +48,41 @@ const App = () => {
   return (
     <div>
       <Card>
-      <CardContent>
-      <Typography variant="h2" className="header" gutterBottom>Recipe Booklet</Typography>
-      <Typography variant="subtitle1" gutterBottom>Enter a food or meal type to get results for different recipes</Typography>
-  
-        <form onSubmit={getSearch} className="search-form">
+        <CardContent>
+          <Typography variant="h2" className="header" gutterBottom>Recipe Booklet</Typography>
+          <Typography variant="subtitle1" gutterBottom>Enter a food or meal type to get results for recipes.</Typography>
 
-          <TextField 
-            id="standard-required"
-            label="Food"
-            type="text"
-            value={search}
-            onChange={updateSearch}
-            required 
-          />
-          <br />
-          <br />
+          <form onSubmit={getSearch} className="search-form">
 
-          <Button style={style} variant="contained" type="submit">Get Recipes</Button>
-        </form>
-        </CardContent>
-        </Card>
-
-        <br />
-        
-        {recipes.map(r => (
-          <Recipe 
-            title={r.recipe.label}
-            calories={r.recipe.calories} 
-            image={r.recipe.image}
-            key={`${r.recipe.label} recipe`}
-            ingredients={r.recipe.ingredients}
+            <TextField
+              id="standard-required"
+              label="Food"
+              type="text"
+              value={search}
+              onChange={updateSearch}
+              required
             />
-        ))}
-        <br />
-        <br />
+            <br />
+            <br />
+
+            <Button style={style} variant="contained" type="submit">Get Recipes</Button>
+          </form>
+        </CardContent>
+      </Card>
+
+      <br />
+
+      {recipes.map(r => (
+        <Recipe
+          title={r.recipe.label}
+          calories={r.recipe.calories}
+          image={r.recipe.image}
+          key={`${r.recipe.label} recipe`}
+          ingredients={r.recipe.ingredients}
+        />
+      ))}
+      <br />
+      <br />
     </div>
   );
 }
