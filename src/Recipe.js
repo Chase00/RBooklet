@@ -14,7 +14,7 @@ const Recipe = ({ title, calories, image, key, ingredients }) => {
             <Card>
                 <CardContent>
                     <Typography variant="h5" gutterBottom>{title}</Typography>
-                    <Typography variant="subtitle1" gutterBottom>({calories} Calories)</Typography>
+                    <Typography variant="subtitle1" style={{color: '#adadad'}} gutterBottom>({calories} Calories)</Typography>
                     <img src={image} alt={key} />
 
                     <Accordion className="accordion">

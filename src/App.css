@@ -23,8 +23,14 @@ body {
     margin: 1em auto;
     transition: none !important;
     box-shadow: none !important;
+    text-align: left;
 }
 
 .accordion:hover {
     background-color: rgb(240, 240, 240);
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
