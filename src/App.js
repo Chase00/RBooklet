@@ -44,7 +44,6 @@ const App = () => {
     color: 'white'
   };
 
-
   return (
     <div>
       <Card>
@@ -75,7 +74,7 @@ const App = () => {
       {recipes.map(r => (
         <Recipe
           title={r.recipe.label}
-          calories={r.recipe.calories}
+          calories={Math.round(r.recipe.calories)}
           image={r.recipe.image}
           key={`${r.recipe.label} recipe`}
           ingredients={r.recipe.ingredients}
